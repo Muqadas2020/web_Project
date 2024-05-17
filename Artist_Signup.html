@@ -1,0 +1,128 @@
+ <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="../static/images/logo.png">
+        <title>Artist SignUp</title>
+
+
+        <script>
+          function validateForm() {
+            var checkboxes = document.getElementsByName('interest');
+            var radios = document.getElementsByName('gender');
+      
+            var checkboxChecked = false;
+            var radioChecked = false;
+      
+            // Check if at least one checkbox is checked
+            for (var i = 0; i < checkboxes.length; i++) {
+              if (checkboxes[i].checked) {
+                checkboxChecked = true;
+                break;
+              }
+            }
+      
+            // Check if at least one radio button is checked
+            for (var i = 0; i < radios.length; i++) {
+              if (radios[i].checked) {
+                radioChecked = true;
+                break;
+              }
+            }
+      
+            // Display an alert if the validation fails
+            if (!checkboxChecked || !radioChecked) {
+              alert('Please select at least one checkbox and one radio button.');
+              return false; // Prevent form submission
+            }
+          }
+        </script>
+
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../static/artist_signup.css">
+    </head>
+    <body>
+<br>
+      <form action="/artist-signup" method="post">
+      <br><br>
+        <h1>Sign Up As Artist</h1>
+        
+        <fieldset>
+          <br>
+          <legend><span class="number">1</span>Your basic info</legend>
+          <label for="bname">Business Name:</label>
+          <input type="text" id="bname" name="b_name" placeholder="Must Be Unique" required>
+          <label for="name">User Name:</label>
+          <input type="text" id="name" name="name" placeholder="Name of Business Owner" required>
+          
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="email" placeholder="Enter Your email (unique)" required>
+          
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Password Should Be Complex" required>
+          
+          <label for="cpassword">Confirm Password:</label>
+          <input type="password" id="cpassword" name="cpassword" placeholder="Re-Write Your Password" required>
+
+          <label>Age:</label>
+          <input type="radio" id="Under_18" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
+          <input type="radio" id="Over_18" value="over_13" name="user_age"><label for="over_13" class="light">13 or older</label>
+
+          <label>Gender:</label>
+          <input type="radio" id="Male" value="male" name="gender"><label for="Male" class="light">Male</label><br>
+          <input type="radio" id="Female" value="female" name="gender"><label for="Female" class="light">Female</label><br>
+          <input type="radio" id="Other" value="other" name="gender"><label for="Other" class="light">Other</label><br>
+        
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Profile Statement</legend>
+          <label for="bio">Biography:</label>
+          <textarea id="bio" name="bio" placeholder="Write About Yourself and Your Business in 500 words." rows="10" cols="50" required></textarea>
+        </fieldset>
+        <fieldset>
+          <legend><span class="number">3</span>Art-Area</legend>
+        <label for="job">Job Role:</label>
+        <select id="job" name="job">
+          <optgroup label="Calligraphy">
+            <option value="English_calligraphy">English Calligraphy</option>
+            <option value="Arabic_calligraphy">Arabic Calligraphy</option>
+            <option value="Doodle_calligraphy">Doodle Calligraphy</option>
+            <option value="Metal_calligraphy">Metal Calligraphy</option>
+            <option value="Digital_callligraphy">Digital Calligraphy</option>
+            <option value="Multi_language_Calligraphy">Multi Language Calligraphy</option>
+          </optgroup>
+          <optgroup label="Painting">
+            <option value="Scenery_painting">Scenery Painting</option>
+            <option value="wildlife_painting">Wildlife Painting</option>
+            <option value="person_painting">Person Pinting</option>
+          </optgroup>
+          <optgroup label="Sketching">
+            <option value="Digital_sketching">Digital Sketching</option>
+            <option value="pencil_sketching">Pencil Sketching</option>
+          </optgroup>
+          <optgroup label="Photography">
+            <option value="Wildlife_photographer">Wildlife Photographer</option>
+            <option value="Fashion_Photographer">Fashion Photographer</option>
+          </optgroup>
+        </select>
+        
+          <label>Interests:</label>
+         
+          <input type="checkbox" id="Drawing" name="interest" value="Drawing"> Drawing<br>
+          <input type="checkbox" id="Painting" name="interest" value="Painting"> Painting<br>
+          <input type="checkbox" id="Sculpture" name="interest" value="Sculpture"> Sculpture<br>
+          <input type="checkbox" id="Photography" name="interest" value="Photography"> Photography<br>
+          <input type="checkbox" id="Printmaking" name="interest" value="Printmaking"> Printmaking<br>
+          <input type="checkbox" id="Digital_Art" name="interest" value="Digital Art"> Digital Art<br>
+          <input type="checkbox" id="Illustration" name="interest" value="Illustration"> Illustration<br>
+      
+        
+        </fieldset>
+        <button type="submit">Sign Up</button>
+        <br><br>
+      </form>
+      <br><br>
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artwork Request Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #028872d1;
+        }
+        .form-container h1{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #020000;
+            text-shadow: 2px 2px 2px rgb(65, 216, 243);
+            cursor: pointer;
+        }
+        .form-container {
+            
+            width: 50%;
+            margin: auto auto;
+            background-color: rgb(255, 255, 255);
+            padding: 50px;
+            border-radius: 40px;
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            width: 120px;
+            font-weight: bold;
+            padding-right: 10px;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group select {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .form-group input[type="email"],
+        .form-group textarea,
+        .form-group select {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .form-group input[type="date"],
+        .form-group textarea,
+        .form-group select {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .form-group .urgent-checkbox {
+            margin-top: 5px;
+        }
+
+        .form-group .submit-btn {
+            margin-left: 300px;
+            background-color: #03a18cb6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group .submit-btn:hover {
+            background-color: #025548;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="/registerAnOrder" method="post">
+    <div class="form-container">
+        <h1>Artwork Request Form</h1>
+        <div class="form-group">
+            <label for="request_to">Request To:</label>
+            <input type="email" id="request_to" value="{{to}}" name ="to" placeholder="EMAIL OF THE ARTIST" readonly>
+        </div>
+        
+        <div class="form-group">
+            <label for="request_from">Request From:</label>
+            <input type="email" id="request_from" value="{{from_}}" name ="from_" placeholder="EMAIL OF THE CLIENT (you)" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="task_description">Description of the Task:</label>
+            <textarea id="task_description" name="des" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="requested_price">Requested Price:</label>
+            <input type="text" id="requested_price" name="price" required>
+        </div>
+
+        <div class="form-group">
+            <label for="delivery_time">Delivery Deadline:</label>
+            <input type="date" id="delivery_time" name="time" required>
+        </div>
+   
+        
+    
+        <div class="form-group">
+            <input type="submit" value="Submit" class="submit-btn">
+        </div>
+    </div>
+</form>
+</body>
+</html>

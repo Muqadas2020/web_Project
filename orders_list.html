@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders List</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        font-size: 14px;
+    }
+}
+
+    </style>
+<script>
+    // Sample data for demonstration purposes
+const orders = [
+    { requester: 'John Doe', requestedTo: 'Jane Smith', description: 'Product A', price: '$50', dateOfDelivery: '2023-07-31' },
+    { requester: 'Alice Johnson', requestedTo: 'Bob Brown', description: 'Product B', price: '$75', dateOfDelivery: '2023-08-05' },
+    // Add more orders here
+];
+
+const tbody = document.querySelector('tbody');
+
+// Function to dynamically add rows to the table
+function renderOrders() {
+    orders.forEach(order => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${order.requester}</td>
+            <td>${order.requestedTo}</td>
+            <td>${order.description}</td>
+            <td>${order.price}</td>
+            <td>${order.dateOfDelivery}</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+// Call the function to render orders on page load
+renderOrders();
+
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Orders List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Requester</th>
+                    <th>Requested To</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Date of Delivery</th>
+                </tr>
+                
+            </thead>
+           
+            <tbody>
+                <!-- Rows of data will be dynamically added via JS -->
+                {% for d in data%}
+            
+                <tr>
+                    <td>{{d[1]}}</td>
+                    <td>{{d[2]}}</td>
+                    <td>{{d[3]}}</td>
+                    <td>{{d[4]}}</td>
+                    <td>{{d[5]}}</td>
+                </tr>
+            
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

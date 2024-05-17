@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search An Artist</title>
+    <link rel="stylesheet" type="text/css" href="../static/search_artist.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/backToHome"><h4 style="margin-left: 20px; text-decoration: none;color: beige;">Home</h4></a>
+        <h1>Search An Artist</h1>
+    </header>
+
+    <div class="container">
+        <div class="search-container">
+        <form action="/searchAnArtist" method="POST">
+
+            <input type="text" id="search-input" placeholder="Enter Name or Business Name" name="name">
+            <br>
+            <button type="submit" id="search-button">Search</button>
+            <br><br>
+            <center>
+                <div style="color: red;">
+                    {{error}}
+                </div>
+            </center>
+
+        </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
